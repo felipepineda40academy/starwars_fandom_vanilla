@@ -6,7 +6,10 @@ var starwars_user_form = {
   email: "",
   email_campaign_opt_in: "",
 };
-var characters_div = document.getElementById("characters");
+var characters_div_0_even = document.getElementById("0_even");
+var characters_div_odds = document.getElementById("odds");
+
+
 var characters_images = [
   "https://farm9.staticflickr.com/8589/16050205404_9fd59fa931_o.jpg",
   "https://img.artpal.com/50943/29-17-9-19-14-13-1m.jpg",
@@ -14,24 +17,37 @@ var characters_images = [
   "https://staticdelivery.nexusmods.com/mods/2229/images/4143/4143-1598751477-400716750.png",
   "https://wallup.net/wp-content/uploads/2019/09/304637-star-wars-leia-organa-748x561.jpg",
   "https://vignette.wikia.nocookie.net/starwars/images/5/56/Owen_Lars1.jpg/revision/latest?cb=20070409092007&path-prefix=nl",
-  "https://s-media-cache-ak0.pinimg.com/originals/2b/bb/71/2bbb712405c574c6ce78730e00464a8e.jpg"
+  "https://s-media-cache-ak0.pinimg.com/originals/2b/bb/71/2bbb712405c574c6ce78730e00464a8e.jpg",
+  "https://cdnb.artstation.com/p/assets/images/images/001/727/465/large/paul-beards-r5-d4-final-preview-01.jpg?1451853235",
+  "http://1.bp.blogspot.com/-oarbb0x_eDQ/VWYn5Kmh_oI/AAAAAAAAhkw/XKK4KiU36hc/s1600/biggs%2Bdark%2Blighter.jpeg",
+  "https://outerrimnews.com/wp-content/uploads/2019/02/obi-wan-kenobi.png"
 ];
 //*------------------------------------------------------functions
 
 function extract_n_insert(data_to_insert) {
+    var w = window.innerWidth;
+    console.log(w)
+    
   let variable_a_iterar = data_to_insert.results;
   for (item in variable_a_iterar) {
     console.log(variable_a_iterar[item]["name"]);
     let h2_element = document.createElement("h2");
-    h2_element.innerHTML = `<div class="card text-center mx-auto" style="width: 30rem;">
+    h2_element.innerHTML = `<div class="m-5">
+                                <div class="card text-center mx-auto">
                                     <img src="${characters_images[item]}" class="card-img-top" alt="...">
                                     <div class="card-body">
                                     <h5 class="card-title">${variable_a_iterar[item]["name"]}</h5>
                                     <p class="card-text">Año de nacimiento: ${variable_a_iterar[item]["birth_year"]}</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <a href="https://www.google.com/search?q=${variable_a_iterar[item]["name"]}" class="btn btn-primary">Search ${variable_a_iterar[item]["name"]}</a>
                                     </div>
-                                </div>`;
-    characters_div.appendChild(h2_element);
+                                </div>
+                            </div>`;
+
+    if((item%2==0)||(item==0)){
+        characters_div_0_even.appendChild(h2_element);
+    }else{
+        characters_div_odds.appendChild(h2_element);
+    }
   }
 }
 
