@@ -8,7 +8,8 @@ var starwars_user_form = {
 };
 var characters_div_0_even = document.getElementById("0_even");
 var characters_div_odds = document.getElementById("odds");
-
+var increment_acc_button = document.getElementById("increment_acc_button")
+var deduction_acc_button = document.getElementById("substraction_acc_button")
 
 var characters_images = [
   "https://farm9.staticflickr.com/8589/16050205404_9fd59fa931_o.jpg",
@@ -23,6 +24,8 @@ var characters_images = [
   "https://outerrimnews.com/wp-content/uploads/2019/02/obi-wan-kenobi.png"
 ];
 //*------------------------------------------------------functions
+
+
 
 function extract_n_insert(data_to_insert) {
     var w = window.innerWidth;
@@ -100,3 +103,21 @@ modal_form.addEventListener("submit", function (event) {
   fetch("https://webhook.site/d0841b11-0fef-4d59-86c0-33ac53e0ee63", obj);
   $("#exampleModal").modal("hide");
 });
+
+function incrementFontSizeBy1px() {
+  console.log("Increment")
+  txt = document.querySelector("body");
+  style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+  currentSize = parseFloat(style);
+  txt.style.fontSize = (currentSize + 20) + 'px';
+}
+function deductionFontSizeBy1px() {
+  console.log("deduction")
+  txt = document.querySelector("body");
+  style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+  currentSize = parseFloat(style);
+  txt.style.fontSize = (currentSize - 20) + 'px';
+}
+increment_acc_button.onclick=function(){ incrementFontSizeBy1px();}
+deduction_acc_button.onclick=function(){deductionFontSizeBy1px();}
+
