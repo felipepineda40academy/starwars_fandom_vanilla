@@ -45,7 +45,7 @@ function extract_n_insert(data_to_insert) {
                                     </div>
                                 </div>
                             </div>`;
-
+    localStorage.setItem(variable_a_iterar[item]["name"],variable_a_iterar[item]["birth_year"])
     if((item%2==0)||(item==0)){
         characters_div_0_even.appendChild(h2_element);
     }else{
