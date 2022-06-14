@@ -1,0 +1,14 @@
+{
+    "array_de_objetos": [
+        {
+            "nombre": "Felipe",
+            "direccion": "San Jose, Ciudad Colon",
+            "Edad": "24"
+        },
+        {
+            "nombre": "Jose",
+            "direccion": "Alajuela, La guacima",
+            "Edad": "28"
+        }
+    ]
+}

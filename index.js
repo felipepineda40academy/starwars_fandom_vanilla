@@ -1,6 +1,8 @@
 var search_form = document.getElementById("search_form");
 var modal_form = document.getElementById("modal_form");
 var button = document.getElementById("modal_button");
+
+
 var starwars_user_form = {
   name: "",
   email: "",
@@ -28,12 +30,12 @@ var characters_images = [
 
 
 function extract_n_insert(data_to_insert) {
-    var w = window.innerWidth;
-    console.log(w)
+    
     
   let variable_a_iterar = data_to_insert.results;
   for (item in variable_a_iterar) {
     console.log(variable_a_iterar[item]["name"]);
+    // console.log(variable_a_iterar[item]["name"]);
     let h2_element = document.createElement("h2");
     h2_element.innerHTML = `<div class="m-5">
                                 <div class="card text-center mx-auto">
@@ -67,9 +69,13 @@ var starwars_characters = fetch("https://swapi.dev/api/people", [
     // console.log(data["results"][0]["name"])
   });
 
+
+//* Activate Modal
 setTimeout(function () {
   $("#exampleModal").modal("show");
 }, 4000);
+
+
 
 search_form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -80,6 +86,9 @@ search_form.addEventListener("submit", function (event) {
     alert("Esta barra de busqueda solo sirve para Darth Vader  o Leia Organa");
   }
 });
+
+
+
 
 modal_form.addEventListener("submit", function (event) {
   event.preventDefault();
@@ -118,6 +127,6 @@ function deductionFontSizeBy1px() {
   currentSize = parseFloat(style);
   txt.style.fontSize = (currentSize - 20) + 'px';
 }
-increment_acc_button.onclick=function(){ incrementFontSizeBy1px();}
+increment_acc_button.onclick=function(){incrementFontSizeBy1px();}
 deduction_acc_button.onclick=function(){deductionFontSizeBy1px();}
 
